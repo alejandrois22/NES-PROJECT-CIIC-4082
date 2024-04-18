@@ -14,7 +14,10 @@
   RTI
 .endproc
 
-.import reset_handler
+.proc reset_handler
+  JMP main
+.endproc
+.export reset_handler
 
 .export main
 .proc main
@@ -37,7 +40,7 @@ load_sprites:
   LDA sprites,X
   STA $0200,X
   INX
-  CPX #$D0      ; # Sprites x 4 bytes
+  CPX #$FF      ; # Sprites x 4 bytes
   BNE load_sprites
 
 vblankwait:       ; wait for another vblank before continuing
@@ -138,6 +141,77 @@ sprites:
   .byte $A8, $3E, $00, $60  
   .byte $A0, $2F, $00, $68 
 
+;Slug Down 1
+  .byte $A0, $42, $00, $70
+  .byte $A8, $53, $00, $78
+  .byte $A8, $52, $00, $70  
+  .byte $A0, $43, $00, $78 
+
+  ;Slug Down 2
+  .byte $A0, $44, $00, $80 
+  .byte $A8, $55, $00, $88
+  .byte $A8, $54, $00, $80  
+  .byte $A0, $45, $00, $88 
+
+  ;Slug Down 3
+  .byte $A0, $46, $00, $90 
+  .byte $A8, $57, $00, $98
+  .byte $A8, $56, $00, $90  
+  .byte $A0, $47, $00, $98
+
+  ;Slug Down 4
+  .byte $B0, $48, $00, $60 
+  .byte $B8, $59, $00, $68
+  .byte $B8, $58, $00, $60  
+  .byte $B0, $49, $00, $68 
+
+  ;Slug Left 1
+  .byte $B0, $62, $00, $70 
+  .byte $B8, $73, $00, $78
+  .byte $B8, $72, $00, $70  
+  .byte $B0, $63, $00, $78 
+
+  ;Slug Left 2
+  .byte $B0, $64, $00, $80 
+  .byte $B8, $75, $00, $88
+  .byte $B8, $74, $00, $80  
+  .byte $B0, $65, $00, $88 
+
+  ;Slug Left 3
+  .byte $B0, $66, $00, $90 
+  .byte $B8, $77, $00, $98
+  .byte $B8, $76, $00, $90  
+  .byte $B0, $67, $00, $98 
+
+  ;Slug Left 4
+  .byte $C0, $68, $00, $60 
+  .byte $C8, $79, $00, $68
+  .byte $C8, $78, $00, $60  
+  .byte $C0, $69, $00, $68 
+
+  ;Slug Up 1
+  .byte $C0, $82, $00, $70 
+  .byte $C8, $93, $00, $78
+  .byte $C8, $92, $00, $70  
+  .byte $C0, $83, $00, $78 
+
+  ;Slug Up 2
+  .byte $C0, $84, $00, $80 
+  .byte $C8, $95, $00, $88
+  .byte $C8, $94, $00, $80  
+  .byte $C0, $85, $00, $88 
+
+  ;Slug Up 3
+  .byte $C0, $86, $00, $90 
+  .byte $C8, $97, $00, $98
+  .byte $C8, $96, $00, $90  
+  .byte $C0, $87, $00, $98 
+  
+  ;Slug Up 4
+  .byte $D0, $88, $00, $60 
+  .byte $D8, $99, $00, $68
+  .byte $D8, $98, $00, $60  
+  .byte $D0, $89, $00, $68 
 
 .segment "CHR"
 .incbin "sprites.chr"
