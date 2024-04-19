@@ -17,7 +17,7 @@
 .proc reset_handler
   JMP main
 .endproc
-.export reset_handler
+
 
 .export main
 .proc main
