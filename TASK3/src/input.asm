@@ -578,18 +578,19 @@ done_checking:
 
 .segment "RODATA"
 palettes:
-.byte $0f, $12, $1A, $27
-.byte $0f, $2b, $3c, $39
-.byte $0f, $0c, $07, $13
-.byte $0f, $19, $09, $29
+  ; BACKGROUND
+  .byte $0f, $2A, $1A, $07
+  .byte $0f, $2b, $3c, $39
+  .byte $0f, $0c, $07, $13
+  .byte $0f, $19, $09, $29
 
-.byte $0f, $2d, $10, $15
-.byte $0f, $19, $09, $29
-.byte $0f, $19, $09, $29
-.byte $0f, $19, $09, $29
+  ; SPRITES
+  .byte $38, $2d, $10, $15
+  .byte $0f, $19, $09, $29
+  .byte $0f, $19, $09, $29
+  .byte $0f, $19, $09, $29
 
 sprites:
-
   .byte $A0, $10, $00, $80 
   .byte $A8, $20, $00, $80  
   .byte $A0, $11, $00, $88  
