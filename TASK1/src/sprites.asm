@@ -492,4 +492,4 @@ sprites:
   .byte $D0, $89, $00, $68 
 
 .segment "CHR"
-.incbin "sprites.chr"
+.incbin "graphics.chr"
